@@ -20,4 +20,11 @@ tasks.register('copyReports', Copy) {
 tasks.register('deployReports') {
     dependsOn reports
     dependsOn copyReports
+    exec{
+        workingDir '.'
+        commandLine 'git','checkout','gh-pages'
+         commandLine 'cp','-rp','build/docs','.'
+          commandLine 'git','commit','-a','-m','"update docs"'
+           commandLine 'git','checkout','main'
+    }
 }
