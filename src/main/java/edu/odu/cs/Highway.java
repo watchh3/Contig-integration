@@ -12,7 +12,6 @@ public class Highway {
   /**
    * 
    * @param args
-   * @return
    * @throws IOException
    */
   public static void main(String[] args) throws IOException {

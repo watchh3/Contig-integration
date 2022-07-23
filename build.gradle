@@ -6,3 +6,18 @@ jar {
         attributes 'Main-Class': 'edu.odu.cs.Highway'
     }
 }
+
+tasks.register('reports') {
+    dependsOn test
+    dependsOn javadoc
+}
+
+tasks.register('copyReports', Copy) {
+    from(file('build/docs'))
+    into('docs')
+}
+
+tasks.register('deployReports') {
+    dependsOn reports
+    dependsOn copyReports
+}
